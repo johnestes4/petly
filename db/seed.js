@@ -1,13 +1,12 @@
 var mongoose  = require("./connection");
 var seedData  = require("./seeds");
 
-var DogModel = mongoose.model('Dog')
-var PetModel = mongoose.model('Pet')
+var Dog = mongoose.model('Dog')
 // PetModel.remove({}, function(err){
 // })
 
-DogModel.remove({}).then(function(){
-  DogModel.collection.insert(seedData).then(function(){
+Dog.remove({}).then(function(){
+  Dog.collection.insert(seedData).then(function(){
     process.exit();
   });
 })
@@ -16,13 +15,13 @@ DogModel.remove({}).then(function(){
 // PetModel.remove({}, function(err){
 // })
 //
-// var django = new DogModel(
+// var django = new Dog(
 //   {name: "Django"}, {breed: "Portuguese Water Dog"}
 // )
-// var tigg = new DogModel(
+// var tigg = new Dog(
 //   {name: "Tigg"}, {breed: "Labrador"}
 // )
-// var puppins = new DogModel(
+// var puppins = new Dog(
 //   {name: "Puppins"}, {breed: "Sheltie"})
 //
 // var pet1 = new PetModel({technique: "tummy scratches"})

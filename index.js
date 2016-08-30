@@ -9,8 +9,6 @@ var mongoose= require("./db/connection");
 var app     = express();
 
 var Dog = mongoose.model("Dog");
-var Pet = mongoose.model("Pet");
-
 
 // if(process.env.NODE_ENV !== "production"){
 //   var env   = require("./env");
@@ -65,11 +63,8 @@ app.use(parser.json({extended: true}));
 // });
 
 app.get("/api/dogs", function(req, res){
-  Dog.find({}).lean().exec().then(function(dogs){
-    dogs.forEach(function(dog){
-      // dog.isCurrentUser = (dog._id == req.session.dog_id);
-    });
-    res.json(dog);
+  Dog.find({}).then(function(dogs){
+    res.json(dogs);
   });
 });
 

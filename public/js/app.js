@@ -23,6 +23,7 @@
   .controller("dogShowCtrl", [
     "Dog",
     "$stateParams",
+    "$window",
     dogShowCtrl
   ]);
 
@@ -52,6 +53,7 @@
     var Dog = $resource("/api/dogs/:name", {}, {
       update: {method: "PUT"}
     });
+    console.log(Dog.query());
     Dog.all = Dog.query();
     Dog.find = function(property, value, callback){
       Dog.all.$promise.then(function(){
@@ -65,10 +67,11 @@
 
   function dogIndexCtrl(Dog){
     var vm = this;
-    vm.dogs = dog.all;
+    vm.dogs = Dog.all;
+    console.log();
   }
 
-  function dogShowCtrl(Dog, $stateParams){
+  function dogShowCtrl(Dog, $stateParams, $window){
     var vm = this;
     Dog.find("name", $stateParams.name, function(dog){
       vm.dog = dog;
@@ -77,6 +80,27 @@
       Dog.update({name: vm.dog.name}, {dog: vm.dog}, function(){
         console.log("Done!");
       });
+    }
+    vm.delete = function(){
+      Dog.remove({name: vm.dog.name}, {dog: vm.dog}, function(){
+        console.log("dog gone");
+        console.log("get it");
+        $window.location.replace("/");
+      })
+    }
+    vm.addPet = function(){
+      if (vm.dog.pets.includes(vm.newPet)){
+        console.log("they already have this one! invent a NEW pet");
+      }
+      else {
+        vm.dog.pets.push(vm.newPet);
+        vm.newPet = "";
+        vm.update();
+      }
+    }
+    vm.removePet = function($index){
+      vm.dog.pets.splice($index, 1);
+      vm.update();
     }
   }
 })();

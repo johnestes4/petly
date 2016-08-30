@@ -7,15 +7,15 @@ var DogSchema = new mongoose.Schema(
     pets: [String]
   }
 );
-var PetSchema = new mongoose.Schema(
-  {
-    technique: String
-  }
-);
+// var PetSchema = new mongoose.Schema(
+//   {
+//     technique: String
+//   }
+// );
 
 
 mongoose.model("Dog", DogSchema);
-mongoose.model("Pet", PetSchema);
+// mongoose.model("Pet", PetSchema);
 
 mongoose.connect("mongodb://localhost/petly");
 
