@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Django",
+    "breed": "Portuguese Water Dog",
+    "pets": [
+      "tummy scratches",
+      "head rubs"
+    ]
+  },
+  {
+    "name": "Tigg",
+    "breed": "Labrador",
+    "pets": [
+      "chin scratches",
+      "down the back pets"
+    ]
+  },
+  {
+    "name": "Django",
+    "breed": 2024,
+    "pets": [
+      "butt scratches",
+      "pets + rubs"
+    ]
+  }
+]

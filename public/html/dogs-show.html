@@ -1,0 +1,23 @@
+<div data-ng-if="!showVM.dog">
+  <h2>That dog couldn't be found!</h2>
+</div>
+<div data-ng-if="showVM.dog">
+
+  <h2>{{showVM.dog.name}} for President in {{showVM.dog.year}}!</h2>
+  <div data-ng-if="showVM.dog.isCurrentUser">
+    <input type="number" placeholder="Year" data-ng-model="showVM.dog.year" />
+    <button data-ng-click="showVM.update()">Edit Platform</button>
+    <button>Concede</button>
+  </div>
+
+  <div data-ng-repeat="position in showVM.dog.positions">
+    <p>{{position}}</p>
+    <button data-ng-if="showVM.dog.isCurrentUser">Change your mind</button>
+  </div>
+
+  <div data-ng-if="showVM.dog.isCurrentUser">
+    <textarea></textarea>
+    <button>Add a position</button>
+  </div>
+
+</div>
