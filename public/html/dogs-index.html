@@ -1,4 +1,10 @@
-<h2>{{indexVM.dogs.length}} dogs</h2>
+<h2>There are {{indexVM.dogs.length}} dogs to pet</h2>
 <h3 data-ng-repeat="dog in indexVM.dogs">
-  <a href="/dogs/{{dog.name}}">{{dog.name}} is a {{dog.breed}}</a>
+  <a href="/dogs/{{dog.name}}">{{dog.name}}, the {{dog.breed}}</a>
 </h3>
+<!-- <div>
+  <p>Add a new dog?</p>
+  <textarea placeholder="Name" data-ng-model="showVM.newDogName"></textarea>
+  <textarea placeholder="Breed" data-ng-model="showVM.newDogBreed"></textarea>
+  <button data-ng-click="indexVM.newDog()">Not enough dogs. I need one more.</button>
+</div> -->

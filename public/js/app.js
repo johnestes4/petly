@@ -68,7 +68,14 @@
   function dogIndexCtrl(Dog){
     var vm = this;
     vm.dogs = Dog.all;
-    console.log();
+    vm.newDog = function(){
+      console.log("HM")
+      var newDog = new Dog(
+        {name: vm.newDogName}, {breed: vm.newDogBreed}
+      )
+      newDog.save;
+      console.log(vm.newDogName);
+    }
   }
 
   function dogShowCtrl(Dog, $stateParams, $window){

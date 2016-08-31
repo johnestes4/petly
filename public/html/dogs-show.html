@@ -1,20 +1,21 @@
 <div data-ng-if="!showVM.dog">
-  <h2>That dog couldn't be found!</h2>
+  <h2>That dog is missing!</h2>
 </div>
 <div data-ng-if="showVM.dog">
 
-  <h2>{{showVM.dog.name}} the {{showVM.dog.breed}}!</h2>
+  <h2>{{showVM.dog.name}} the {{showVM.dog.breed}}</h2>
 
   <button data-ng-click="showVM.delete()">Remove This Dog?</button>
 
-
+  <h4>These are the ways this dog has been pet:</h4>
   <div data-ng-repeat="pet in showVM.dog.pets">
     <p>{{pet}}</p>
     <button data-ng-click="showVM.removePet($index)">This is a bad pet. No longer perform it.</button>
   </div>
 
   <div>
-    <textarea placeholder="New Pet" data-ng-model="showVM.newPet"></textarea>
+    <h4>How will you pet this dog?</h4>
+    <textarea placeholder="Invent a wondrous new pet." data-ng-model="showVM.newPet"></textarea>
     <button data-ng-click="showVM.addPet()">This will be the greatest pet of all.</button>
   </div>
 
