@@ -1,3 +1,3 @@
-# WhenPresident
+# Pet.ly
 
-## [Please see the wiki](https://github.com/ga-wdi-exercises/whenpresident/wiki)
+## Pet a dog in a creative exciting new way
